@@ -21,7 +21,7 @@ console.log(process.env.DATABASEURL);
 // mongoose.connect("mongodb://localhost/yelp_camp");
 mongoose.connect(process.env.DATABASEURL);
 // Use this heroku / mongolab database for production?
-// mongoose.connect("mongodb://leslie:buddha@ds031922.mlab.com:31922/yelpcamp");
+// mongoose.connect("mongodb://<user>:<pass@ds<number>.<sitewheredbislocated>:31922/yelpcamp");
 
 
 app.use(bodyParser.urlencoded({extended: true}));
