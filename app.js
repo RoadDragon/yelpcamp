@@ -16,9 +16,13 @@ var commentRoutes       = require("./routes/comments"),
     campgroundRoutes    = require("./routes/campgrounds"),
     indexRoutes          = require("./routes/index");
     
-
+console.log(process.env.DATABASEURL);
+// Use this local database for development?
 // mongoose.connect("mongodb://localhost/yelp_camp");
-mongoose.connect("mongodb://leslie:buddha@ds031922.mlab.com:31922/yelpcamp");
+mongoose.connect(process.env.DATABASEURL);
+// Use this heroku / mongolab database for production?
+// mongoose.connect("mongodb://leslie:buddha@ds031922.mlab.com:31922/yelpcamp");
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
