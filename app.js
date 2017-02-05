@@ -17,11 +17,15 @@ var commentRoutes       = require("./routes/comments"),
     indexRoutes          = require("./routes/index");
     
 console.log(process.env.DATABASEURL);
-// Use this local database for development?
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp"
+mongoose.connect(url);
+
+// Use the following local database for development:
 // mongoose.connect("mongodb://localhost/yelp_camp");
-mongoose.connect(process.env.DATABASEURL);
-// Use this heroku / mongolab database for production?
-// mongoose.connect("mongodb://<user>:<pass@ds<number>.<sitewheredbislocated>:31922/yelpcamp");
+// mongoose.connect(process.env.DATABASEURL);
+
+// Use the following mongolab database for production:
+// mongoose.connect("mongodb://<user>:<pass@ds<number>.mlab.com:31922/yelpcamp");
 
 
 app.use(bodyParser.urlencoded({extended: true}));
